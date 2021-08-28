@@ -332,7 +332,7 @@ while [ "x$list" != "x" ] ; do
     fi
   done
 
-  initrd="boot/nonp.img"
+  initrd="nonp.img"
   config=
   for i in "${dirname}/config-${version}" "${dirname}/config-${alt_version}" "/etc/kernels/kernel-config-${version}" ; do
     if test -e "${i}" ; then
