@@ -1,0 +1,24 @@
+#!/bin/sh
+
+## Copyright (C) 2019 - 2021 ENCRYPTED SUPPORT LP <adrelanos@whonix.org>
+## See the file COPYING for copying conditions.
+
+set -e
+
+GRUB_DEVICE="/dev/disk/by-uuid/${GRUB_DEVICE_UUID}"
+unset GRUB_DEVICE_UUID
+GRUB_CMDLINE_LINUX="$GRUB_CMDLINE_LINUX"
+GRUB_DISTRIBUTOR="LIVE mode USER DRACUT (For daily activities.)"
+GRUB_DISABLE_RECOVERY="true"
+GRUB_DISABLE_SUBMENU="y"
+
+export \
+   GRUB_DEVICE \
+   GRUB_CMDLINE_LINUX \
+   GRUB_DISTRIBUTOR \
+   GRUB_DISABLE_RECOVERY \
+   GRUB_DISABLE_SUBMENU
+
+if test -x /etc/grub.d/12_linux ; then
+	/etc/grub.d/12_linux
+fi
